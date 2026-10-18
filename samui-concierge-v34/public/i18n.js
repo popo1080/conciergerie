@@ -5,7 +5,7 @@
 
   /* ---------------------------------------------------------------- EN */
   Object.assign(D.en, {
-    'meta.title': 'Samui Concierge | Private Concierge, Villas, Boats & Dining in Koh Samui',
+    'meta.title': 'your private conciergerie on oh samui island',
     'meta.desc': 'Samui Concierge coordinates private villas, boat charters, restaurants, airport transfers, transport, wellness, experiences and local services across Koh Samui, Thailand.',
     'nav.services': 'Services', 'nav.experience': 'Experience', 'nav.island': 'Koh Samui', 'nav.request': 'Request',
     'nav.partner': 'BECOME A PARTNER', 'nav.start': 'START A REQUEST',
@@ -68,7 +68,7 @@
 
   /* ---------------------------------------------------------------- FR */
   Object.assign(D.fr, {
-    'meta.title': 'Samui Concierge | Conciergerie privée, villas, bateaux et restaurants à Koh Samui',
+    'meta.title': 'your private conciergerie on oh samui island',
     'meta.desc': "Samui Concierge organise villas privées, locations de bateaux, restaurants, transferts aéroport, transports, bien-être, expériences et services locaux à Koh Samui, Thaïlande.",
     'nav.services': 'Services', 'nav.experience': 'Expérience', 'nav.island': 'Koh Samui', 'nav.request': 'Demande',
     'nav.partner': 'DEVENIR PARTENAIRE', 'nav.start': 'FAIRE UNE DEMANDE',
@@ -131,7 +131,7 @@
 
   /* ---------------------------------------------------------------- TH */
   Object.assign(D.th, {
-    'meta.title': 'Samui Concierge | คอนเซียร์จส่วนตัว วิลล่า เรือ และร้านอาหารในเกาะสมุย',
+    'meta.title': 'your private conciergerie on oh samui island',
     'meta.desc': 'Samui Concierge ดูแลวิลล่าส่วนตัว เรือเช่า ร้านอาหาร รถรับส่งสนามบิน การเดินทาง สปา กิจกรรม และบริการท้องถิ่นทั่วเกาะสมุย ประเทศไทย',
     'nav.services': 'บริการ', 'nav.experience': 'ประสบการณ์', 'nav.island': 'เกาะสมุย', 'nav.request': 'ส่งคำขอ',
     'nav.partner': 'ร่วมเป็นพาร์ทเนอร์', 'nav.start': 'ส่งคำขอ',
