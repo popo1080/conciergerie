@@ -1,0 +1,128 @@
+/* Samui Concierge — couche de design "stylé" (chargée après style.css) */
+:root{--gold-grad:linear-gradient(135deg,#f2d798 0%,#d6ad63 45%,#b9853c 100%);--glass:#06191dbf}
+::selection{background:#d6ad63;color:#06191d}
+html{scrollbar-width:thin;scrollbar-color:#d6ad6377 #02090b}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#02090b}::-webkit-scrollbar-thumb{background:#d6ad6366;border-radius:10px}
+
+/* ---------- Typo : thaï ---------- */
+html[lang=th] body,html[lang=th] button,html[lang=th] input,html[lang=th] select,html[lang=th] textarea{font-family:'Noto Sans Thai','Sarabun',Inter,system-ui,sans-serif}
+html[lang=th] h1,html[lang=th] h2,html[lang=th] h3,html[lang=th] .serviceTileText h3,html[lang=th] .partnerCardBody strong,html[lang=th] .body h2,html[lang=th] .panelTop h2{font-family:'Noto Serif Thai','Noto Sans Thai',Georgia,serif;letter-spacing:0!important;line-height:1.22!important;font-weight:400}
+html[lang=th] .cinemaText h1{font-size:clamp(42px,6.2vw,92px)}
+html[lang=th] .intro h2,html[lang=th] .services h2,html[lang=th] .islandCopy h2,html[lang=th] .requestCard h2,html[lang=th] .how h2{font-size:clamp(36px,4.4vw,62px)}
+html[lang=th] .eyebrow,html[lang=th] .navButton,html[lang=th] .facts,html[lang=th] .cinemaTop,html[lang=th] .cinemaMeta,html[lang=th] .requestSteps,html[lang=th] .islandZones span,html[lang=th] label,html[lang=th] footer b,html[lang=th] .marquee span,html[lang=th] .field label,html[lang=th] .langSwitch button{letter-spacing:.02em!important}
+html[lang=th] p,html[lang=th] .serviceTileText p{line-height:1.9}
+html[lang=th] .nav nav{font-size:13px}
+html[lang=th] .cinemaTop,html[lang=th] .cinemaMeta,html[lang=th] .eyebrow,html[lang=th] .facts,html[lang=th] .islandZones span,html[lang=th] .requestSteps{font-size:11px}
+html[lang=th] .gold,html[lang=th] .goldButton,html[lang=th] .ghost,html[lang=th] .navButton{font-size:12px}
+html[lang=fr] .cinemaText h1{font-size:clamp(56px,7.6vw,108px)}
+
+/* ---------- Navigation en verre + sélecteur de langue ---------- */
+.nav{transition:.5s;gap:18px}
+.nav.scrolled{height:68px;background:var(--glass);backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid #d6ad6322}
+.nav nav a{position:relative;padding:6px 0}
+.nav nav a:after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nav nav a:hover:after,.nav nav a.active:after{transform:scaleX(1)}
+.nav nav a.active{color:#fff}
+.navRight{display:flex;align-items:center;gap:10px}
+.langSwitch{display:inline-flex;border:1px solid #d6ad6355;border-radius:999px;padding:3px;background:#02090b66;backdrop-filter:blur(10px)}
+.langSwitch button{border:0;background:transparent;color:#ffffffb0;font-size:10px;font-weight:800;letter-spacing:.12em;padding:7px 11px;border-radius:999px;cursor:pointer;transition:.25s}
+.langSwitch button:hover{color:#fff}
+.langSwitch button.on{background:var(--gold-grad);color:#071114;box-shadow:0 4px 18px #d6ad6340}
+.navButton{border-radius:999px;backdrop-filter:blur(8px);background:#02090b40}
+.navButton.solid{background:var(--gold-grad);color:#071114;border-color:transparent;font-weight:900}
+
+/* ---------- Hero ---------- */
+.cinemaShade{background:linear-gradient(90deg,#02090bf2 0%,#02090ba0 42%,#02090b10 100%),linear-gradient(0deg,#02090bf0,transparent 55%,#02090b40)}
+.cinemaText h1 i,.intro h2 i,.services h2 i,.islandCopy h2 i,.requestCard h2 i,.how h2 i{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-right:.06em}
+.cinemaText .eyebrow{display:inline-flex;align-items:center;gap:14px}
+.cinemaText .eyebrow:before{content:"";width:46px;height:1px;background:var(--gold)}
+.gold,.goldButton{background:var(--gold-grad);border-radius:999px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.gold:before,.goldButton:before{content:"";position:absolute;top:0;bottom:0;left:-80%;width:50%;background:linear-gradient(90deg,transparent,#ffffff66,transparent);transform:skewX(-20deg);transition:left .7s}
+.gold:hover,.goldButton:hover{transform:translateY(-2px);box-shadow:0 14px 40px #d6ad6345}
+.gold:hover:before,.goldButton:hover:before{left:130%}
+.goldButton{border-radius:12px}
+.ghost{border-radius:999px;backdrop-filter:blur(8px);background:#ffffff0d;transition:.3s}
+.ghost:hover{background:#ffffff1f;border-color:#ffffff80}
+.scrollCue{position:absolute;z-index:3;right:5vw;bottom:70px;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:9px;letter-spacing:.3em;color:#ffffffb0;writing-mode:vertical-rl}
+.scrollCue:after{content:"";width:1px;height:62px;background:linear-gradient(var(--gold),transparent);animation:cue 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+html[lang=th] .scrollCue{letter-spacing:.05em}
+
+/* ---------- Bandeau défilant ---------- */
+.marquee{background:#02090b;border-top:1px solid #d6ad6330;border-bottom:1px solid #d6ad6330;overflow:hidden;padding:20px 0;position:relative}
+.marquee:before,.marquee:after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.marquee:before{left:0;background:linear-gradient(90deg,#02090b,transparent)}
+.marquee:after{right:0;background:linear-gradient(270deg,#02090b,transparent)}
+.marqueeTrack{display:flex;gap:48px;width:max-content;animation:marq 38s linear infinite}
+.marquee:hover .marqueeTrack{animation-play-state:paused}
+.marquee span{font:400 20px Georgia,serif;font-style:italic;color:#ffffffd0;white-space:nowrap;display:inline-flex;align-items:center;gap:48px}
+.marquee span:after{content:"✦";color:var(--gold);font-size:12px;font-style:normal}
+html[lang=th] .marquee span{font-family:'Noto Serif Thai',serif;font-style:normal;font-size:18px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- Comment ça marche ---------- */
+.how{background:#04161b;padding:120px 6vw;position:relative;overflow:hidden}
+.how:before{content:"";position:absolute;inset:-30% -10% auto auto;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,#d6ad6317,transparent 65%);pointer-events:none}
+.how h2{font:400 clamp(44px,5vw,72px)/.98 Georgia,serif;letter-spacing:-.04em;margin:18px 0 60px}
+.howGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;position:relative}
+.howCard{position:relative;padding:34px 30px 38px;border:1px solid #ffffff1c;border-radius:18px;background:linear-gradient(160deg,#ffffff0d,#ffffff03);transition:.4s;overflow:hidden}
+.howCard:hover{transform:translateY(-6px);border-color:#d6ad6377;box-shadow:0 24px 60px #0007}
+.howCard b{display:block;font:400 74px/1 Georgia,serif;background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;margin-bottom:18px;opacity:.9}
+.howCard h3{font:400 28px Georgia,serif;margin:0 0 10px}
+.howCard p{margin:0;color:#b7c4c0;line-height:1.75}
+html[lang=th] .howCard h3{font-family:'Noto Serif Thai',serif}
+
+/* ---------- Tuiles de services ---------- */
+.serviceTile{border-radius:16px;isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+.serviceTile:hover{transform:translateY(-8px);box-shadow:0 30px 70px #0006,0 0 0 1px #d6ad6377}
+.serviceTile:after{background:linear-gradient(0deg,#020d10f2 0%,#020d1070 46%,transparent 78%)}
+.serviceTile .tileNo{position:absolute;z-index:3;top:18px;left:20px;font-size:10px;letter-spacing:.2em;color:#fff;background:#02090b66;border:1px solid #ffffff33;padding:6px 10px;border-radius:999px;backdrop-filter:blur(8px)}
+.serviceTile .tileGo{position:absolute;z-index:3;top:14px;right:16px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--gold-grad);color:#071114;font-weight:900;transform:scale(.6) rotate(-45deg);opacity:0;transition:.4s}
+.serviceTile:hover .tileGo{transform:none;opacity:1}
+.serviceTileText p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.services,.intro{background-image:radial-gradient(circle at 12% 0,#d6ad6314,transparent 38%)}
+
+/* ---------- Île / zones ---------- */
+.islandZones span{border-radius:999px;backdrop-filter:blur(6px);transition:.3s}
+.islandZones span:hover{border-color:var(--gold);color:var(--gold2);background:#d6ad6310}
+
+/* ---------- Carte de demande ---------- */
+.requestCard{border-radius:24px;background:#06181d8c;backdrop-filter:blur(14px) saturate(1.2)}
+.requestCard input,.requestCard select,.requestCard textarea{border-radius:10px;background:#03131780}
+.requestCard input:focus,.requestCard select:focus{border-color:var(--gold)}
+.requestSteps span{border:1px solid #d6ad6344;padding:8px 12px;border-radius:999px;background:#d6ad630a}
+.partnerCard{border-radius:14px}
+.successToast{border-radius:16px}
+
+/* ---------- Pied de page ---------- */
+footer{background:linear-gradient(180deg,#020b0e,#010608);border-top:1px solid #d6ad6330}
+footer a{color:#cbd6d3;transition:.25s}footer a:hover{color:var(--gold2);transform:translateX(3px)}
+footer div{font-size:12px}
+html[lang=th] footer b{font-size:11px}
+
+/* ---------- Pages internes (partners / apply / 404) ---------- */
+.pageBar{display:flex;align-items:center;gap:14px}
+header .langSwitch{margin-left:auto}
+.card,.panel,.checks,.check,.field input,.field select,.field textarea,.submit{border-radius:12px}
+.card{border-radius:16px}
+.card:hover{box-shadow:0 24px 60px #0007}
+.submit{background:var(--gold-grad)!important;border-radius:12px;color:#07181c}
+.hero h1 i{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+
+@media(max-width:1050px){.howGrid{grid-template-columns:1fr}.scrollCue{display:none}}
+@media(max-width:650px){
+  .navRight .navButton{display:none}
+  .navRight .navButton.solid{display:inline-flex}
+  .langSwitch button{padding:6px 9px;font-size:9px}
+  .how{padding:80px 22px}
+  .marquee span{font-size:16px}
+  .nav{padding:0 14px}
+}
+@media(prefers-reduced-motion:reduce){.marqueeTrack{animation:none}}
+
+/* ---------- Corrections de lisibilité ---------- */
+.intro h2 i,.services h2 i{background:linear-gradient(135deg,#c79646 0%,#9a6a28 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+html[lang=th] i,html[lang=th] em{font-style:normal}
+html[lang=th] .cinemaText{max-width:1020px}
+html[lang=th] .cinemaText h1{font-size:clamp(38px,5.2vw,78px)}
+html[lang=th] .cinemaText h1 i{display:inline-block}

@@ -1,0 +1,7 @@
+SERVICE IMAGES
+
+The service gallery now uses one semantic image per service via Unsplash image URLs.
+They are displayed remotely; no extra download is required for the service cards.
+The URLs use Unsplash's image CDN with crop/compression parameters.
+
+The site itself is already wired: changing data/services.json changes the image shown for each service.

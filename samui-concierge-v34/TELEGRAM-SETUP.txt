@@ -1,0 +1,28 @@
+TELEGRAM — SAMUI CONCIERGE
+
+1. Créez le fichier .env (copie de .env.example) à côté de server.js et remplissez :
+   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, ADMIN_PASSWORD, SITE_URL
+2. Lancez : npm install puis npm start
+3. Ouvrez le bot sur Telegram (depuis le compte qui possède TELEGRAM_CHAT_ID) et envoyez /start.
+4. Connectez-vous à /admin-dashboard.html puis ouvrez /api/telegram-test (envoie un message test).
+
+DEMANDES CLIENTS
+Chaque demande client arrive sur Telegram comme avant.
+
+NOUVELLES INSCRIPTIONS PARTENAIRES (nouveau)
+Quand quelqu'un remplit /partner-apply.html, vous recevez sur Telegram un message avec TOUS les détails
+(nom, Telegram, zone, services, description, photos, notes) et deux boutons :
+   ✅ OUI — publier      ❌ NON — refuser
+Vous pouvez aussi simplement écrire au bot :
+   - "oui" ou "non"  -> s'il n'y a qu'une seule inscription en attente
+   - "oui" / "non" en RÉPONDANT au message de l'inscription (si plusieurs en attente)
+   - "oui PA-XXXX" / "non PA-XXXX" avec l'identifiant de l'inscription
+   - /attente  -> liste des inscriptions en attente
+OUI  = le partenaire est publié sur la conciergerie (page partenaires + page SEO).
+NON  = refusé, rien n'est publié.
+Seul votre compte (TELEGRAM_CHAT_ID) peut valider. Le dashboard admin reste utilisable en parallèle.
+
+ATTENTION
+- Un seul serveur à la fois doit utiliser le même token de bot (sinon erreur 409). Pour tester en local
+  pendant que le site est en ligne, créez un 2e bot avec @BotFather.
+- Ne publiez jamais .env ni le token du bot.

@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "category": "Services",
+    "name": "Tours & Excursions",
+    "description": "Day tours, private tours and excursions around Samui and beyond.",
+    "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 2,
+    "category": "Services",
+    "name": "Boat Trips & Charters",
+    "description": "Private boats, charters and cruises on the Gulf of Thailand.",
+    "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 3,
+    "category": "Services",
+    "name": "Diving & Snorkeling",
+    "description": "Diving and snorkeling experiences with local operators.",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 4,
+    "category": "Services",
+    "name": "Water Sports",
+    "description": "Jet ski, water sports and fun on the sea around Koh Samui.",
+    "image": "/media/water-sports-jetski.jpg"
+  },
+  {
+    "id": 5,
+    "category": "Services",
+    "name": "Motorbike Rental",
+    "description": "Motorbike and scooter rental options around Koh Samui.",
+    "image": "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 6,
+    "category": "Services",
+    "name": "Car Rental",
+    "description": "Cars for flexible island travel.",
+    "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 7,
+    "category": "Services",
+    "name": "Taxi & Private Transfers",
+    "description": "Point-to-point transfers and private transport.",
+    "image": "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 8,
+    "category": "Services",
+    "name": "Airport & Ferry Transfers",
+    "description": "Reliable transfers to and from airports and ferry piers.",
+    "image": "https://nb-img.imgix.net/images-usm/samui_accom2018-4.jpg?auto=compress,enhance,format&w=1200&q=82"
+  },
+  {
+    "id": 9,
+    "category": "Services",
+    "name": "Villas & Private Stays",
+    "description": "Private villas and holiday stays in Koh Samui.",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 10,
+    "category": "Services",
+    "name": "Hotels & Resorts",
+    "description": "Hotels and resorts for your stay on the island.",
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 11,
+    "category": "Services",
+    "name": "Restaurants",
+    "description": "Restaurant recommendations and reservations.",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 12,
+    "category": "Services",
+    "name": "Bars & Beach Clubs",
+    "description": "Beach clubs, bars and places for a night out.",
+    "image": "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 13,
+    "category": "Services",
+    "name": "Cafés & Bakeries",
+    "description": "Coffee, breakfast, bakeries and casual spots.",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 14,
+    "category": "Services",
+    "name": "Massage & Spa",
+    "description": "Massage, spa and relaxation services.",
+    "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 15,
+    "category": "Services",
+    "name": "Beauty & Nail Salons",
+    "description": "Beauty, hair and nail services.",
+    "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 16,
+    "category": "Services",
+    "name": "Yoga & Wellness",
+    "description": "Yoga, wellness and private sessions.",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 17,
+    "category": "Services",
+    "name": "Muay Thai & Fitness",
+    "description": "Muay Thai, gyms and private fitness coaching.",
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 18,
+    "category": "Services",
+    "name": "Adventure & Off-Road",
+    "description": "ATV, quad, jungle tours, off-road and adventure experiences.",
+    "image": "/media/adventure-atv-jungle.jpg"
+  },
+  {
+    "id": 19,
+    "category": "Services",
+    "name": "Fishing Trips",
+    "description": "Fishing trips and private fishing charters.",
+    "image": "/media/fishing-trips-natural.jpg"
+  },
+  {
+    "id": 20,
+    "category": "Services",
+    "name": "Cooking Classes",
+    "description": "Thai cooking classes and culinary experiences.",
+    "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 21,
+    "category": "Services",
+    "name": "Animal & Nature Experiences",
+    "description": "Nature, wildlife and animal experiences.",
+    "image": "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 22,
+    "category": "Services",
+    "name": "Jungle & Hiking",
+    "description": "Jungle adventures, viewpoints and hiking.",
+    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 23,
+    "category": "Services",
+    "name": "Weddings & Proposals",
+    "description": "Wedding and proposal planning and coordination.",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 24,
+    "category": "Services",
+    "name": "Romantic Experiences",
+    "description": "Romantic dinners, couples experiences and special moments.",
+    "image": "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 25,
+    "category": "Services",
+    "name": "Photography & Videography",
+    "description": "Professional photography and video for your stay.",
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 26,
+    "category": "Services",
+    "name": "Events & Nightlife",
+    "description": "Private events, nightlife and special occasions.",
+    "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 27,
+    "category": "Services",
+    "name": "Shopping & Local Products",
+    "description": "Shopping assistance and local products.",
+    "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 28,
+    "category": "Services",
+    "name": "Family & Kids Activities",
+    "description": "Family-friendly activities and services for children.",
+    "image": "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 29,
+    "category": "Services",
+    "name": "Health & Medical",
+    "description": "Local health, medical and support services.",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 30,
+    "category": "Services",
+    "name": "Business & Professional Services",
+    "description": "Local professional and business services.",
+    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 31,
+    "category": "Services",
+    "name": "Home, Villa & Concierge Services",
+    "description": "Villa care, housekeeping, maintenance and concierge support.",
+    "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=82"
+  },
+  {
+    "id": 32,
+    "category": "Services",
+    "name": "Private Chef & Dining Experiences",
+    "description": "Private chefs, dinners and culinary experiences at home or in a villa.",
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=82"
+  }
+]

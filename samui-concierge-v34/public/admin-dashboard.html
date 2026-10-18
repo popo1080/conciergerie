@@ -1,0 +1,163 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Samui Concierge — Private Operations</title><style>:root{--n:#06191d;--g:#d6ad63;--ink:#14211f;--muted:#71807d;--line:#d9dfda}*{box-sizing:border-box}body{margin:0;background:#eef1ed;color:var(--ink);font:14px system-ui,-apple-system,Segoe UI,sans-serif}.top{background:var(--n);color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}.wrap{max-width:1280px;margin:auto;padding:24px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.btn{border:0;background:#09242d;color:#fff;border-radius:8px;padding:9px 12px;cursor:pointer}.gold{background:var(--g);color:#08171a}.muted,.help{color:var(--muted);font-size:12px}.app{border-top:1px solid #e0e4e1;padding:16px 0;display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:14px;align-items:center}.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#edf2ef;font-size:11px}.pending{color:#8a6a20}.approved{color:#1b6a4b}.rejected{color:#9a4c40}.thumbs{display:flex;gap:5px}.thumb{width:52px;height:44px;object-fit:cover;border-radius:6px;background:#e8ece9}.login{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 70% 20%,#173a3d,#06191d 55%)}.loginBox{width:min(380px,calc(100% - 36px));background:#fff;padding:28px;border-radius:14px}.loginBox input{width:100%;padding:12px;margin:12px 0;border:1px solid #ccd4cf;border-radius:8px}.err{color:#9a4c40;font-size:12px}@media(max-width:800px){.app{grid-template-columns:1fr}.wrap{padding:14px}}</style></head><body><div id="login" class="login"><div class="loginBox"><h2>Private Operations</h2><p class="help">Only Samui Concierge can approve partner applications.</p><input id="password" type="password" placeholder="Admin password"><button class="btn gold" id="loginBtn">ENTER</button><div id="loginErr" class="err"></div></div></div><div id="app" style="display:none"><div class="top"><b>SAMUI CONCIERGE</b><button class="btn" id="logout">LOG OUT</button></div><main class="wrap"><div class="card"><div class="toolbar"><h2 style="margin:0">Partner applications</h2><span class="help">Approve a business before it appears on the public partner pages.</span></div><div id="applications"></div></div><div class="card"><div class="toolbar"><h2 style="margin:0">Approved partners</h2><span class="help">Remove a partner from the public directory.</span></div><div id="partners"></div></div></main></div><script>const login = document.querySelector('#login');
+const app = document.querySelector('#app');
+const err = document.querySelector('#loginErr');
+const passwordInput = document.querySelector('#password');
+
+async function api(url, opt = {}) {
+  return fetch(url, {
+    ...opt,
+    headers: {
+      'content-type': 'application/json',
+      ...(opt.headers || {})
+    }
+  });
+}
+
+async function me() {
+  try {
+    const r = await fetch('/api/admin/me');
+    if (r.ok) {
+      login.style.display = 'none';
+      app.style.display = 'block';
+      load();
+    }
+  } catch (_) {}
+}
+
+async function doLogin() {
+  err.textContent = '';
+  const password = passwordInput.value;
+  if (!password) {
+    err.textContent = 'Please enter the admin password.';
+    passwordInput.focus();
+    return;
+  }
+  try {
+    const r = await api('/api/admin/login', {
+      method: 'POST',
+      body: JSON.stringify({ password })
+    });
+    const j = await r.json();
+    if (!r.ok) {
+      err.textContent = j.error || 'Login failed';
+      return;
+    }
+    passwordInput.value = '';
+    login.style.display = 'none';
+    app.style.display = 'block';
+    await load();
+  } catch (e) {
+    err.textContent = 'Could not connect to the server.';
+  }
+}
+
+async function load() {
+  const container = document.querySelector('#applications');
+  try {
+    const r = await fetch('/api/partner-applications');
+    if (!r.ok) {
+      container.innerHTML = '<div class="help">Could not load applications.</div>';
+      return;
+    }
+    const a = await r.json();
+    container.innerHTML = a.map(x => `
+      <div class="app">
+        <div>
+          <b>${esc(x.business_name)}</b>
+          <div class="muted">${esc(x.category)} · ${esc(x.location)}</div>
+          <div class="muted">Telegram: ${esc(x.telegram)}</div>
+        </div>
+        <div>
+          <b>Services</b>
+          <div class="muted">${(x.services || []).map(esc).join(' · ')}</div>
+        </div>
+        <div>
+          <div class="thumbs">
+            ${(x.images || []).slice(0, 5).map(u => `<img class="thumb" src="${esc(u)}" alt="" onerror="this.style.display='none'">`).join('')}
+          </div>
+          <span class="pill ${esc(x.status)}">${esc(x.status).toUpperCase()}</span>
+        </div>
+        <div>
+          ${x.status === 'pending' ? `
+            <button class="btn gold" data-id="${esc(x.id)}" data-action="approve">APPROVE</button>
+            <button class="btn" data-id="${esc(x.id)}" data-action="reject">REJECT</button>
+          ` : ''}
+        </div>
+      </div>
+    `).join('') || '<div class="help">No applications yet.</div>';
+
+    container.querySelectorAll('[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => act(btn.dataset.id, btn.dataset.action));
+    });
+    await loadPartners();
+  } catch (_) {
+    container.innerHTML = '<div class="help">Could not load applications.</div>';
+  }
+}
+
+async function loadPartners() {
+  const container = document.querySelector('#partners');
+  try {
+    const r = await fetch('/api/admin/partners');
+    if (!r.ok) { container.innerHTML = '<div class="help">Could not load partners.</div>'; return; }
+    const partners = await r.json();
+    const active = partners.filter(x => x.active !== false);
+    container.innerHTML = active.map(x => `
+      <div class="app">
+        <div><b>${esc(x.name)}</b><div class="muted">${esc(x.category)} · ${esc(x.service || '')}</div></div>
+        <div class="muted">${esc(x.base_zone || 'Koh Samui')}</div>
+        <div><span class="pill approved">ACTIVE</span></div>
+        <div><button class="btn" data-delete-partner="${esc(x.id)}">DELETE</button></div>
+      </div>
+    `).join('') || '<div class="help">No active partners.</div>';
+    container.querySelectorAll('[data-delete-partner]').forEach(btn => btn.addEventListener('click', () => deletePartner(btn.dataset.deletePartner)));
+  } catch (_) { container.innerHTML = '<div class="help">Could not load partners.</div>'; }
+}
+
+async function deletePartner(id) {
+  const partner = (await fetch('/api/admin/partners')).ok ? await (await fetch('/api/admin/partners')).json() : [];
+  const p = partner.find(x => String(x.id) === String(id));
+  if (!p) return;
+  if (!confirm(`Delete ${p.name} from the public directory?`)) return;
+  const r = await api('/api/partners/' + encodeURIComponent(id), { method: 'DELETE' });
+  const j = await r.json();
+  if (!r.ok) { alert(j.error || 'Delete failed'); return; }
+  await load();
+}
+
+async function act(id, action) {
+  if (!confirm(action.toUpperCase() + ' this application?')) return;
+  const r = await api('/api/partner-applications/' + encodeURIComponent(id), {
+    method: 'PATCH',
+    body: JSON.stringify({ action })
+  });
+  const j = await r.json();
+  if (!r.ok) {
+    alert(j.error || 'Action failed');
+    return;
+  }
+  await load();
+}
+
+async function logout() {
+  await fetch('/api/admin/logout', { method: 'POST' });
+  location.reload();
+}
+
+function esc(v) {
+  return String(v ?? '').replace(/[&<>'"]/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    "'": '&#39;',
+    '"': '&quot;'
+  }[c]));
+}
+
+document.querySelector('#loginBtn').addEventListener('click', doLogin);
+passwordInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+document.querySelector('#logout').addEventListener('click', logout);
+me();
+</script></body></html>

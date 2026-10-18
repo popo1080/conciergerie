@@ -1,0 +1,24 @@
+PUBLIER LE SITE (Node.js)
+
+Ce site est une application Node.js (pas un simple site HTML) : il faut un hébergeur qui exécute Node
+ET qui garde le dossier data/ (partenaires, demandes, inscriptions) entre deux redémarrages.
+
+OPTION A — VPS (recommandé, ~5 $/mois : Hetzner, DigitalOcean, OVH...)
+1. Installez Node 18+ (ou 22) et copiez le dossier du site.
+2. Créez .env (voir .env.example) avec SITE_URL=https://votre-domaine.com et TRUST_PROXY=1.
+3. npm install --omit=dev
+4. Lancez avec pm2 : npm i -g pm2 && pm2 start server.js --name samui && pm2 save && pm2 startup
+5. Mettez Nginx ou Caddy devant (port 3000 -> HTTPS). Caddy gère le HTTPS automatiquement.
+6. Pointez le DNS de votre domaine (enregistrement A) vers l'IP du VPS.
+
+OPTION B — Render / Railway / Fly.io
+- Build : npm install   |   Start : npm start
+- Ajoutez les variables du .env dans l'interface de l'hébergeur.
+- IMPORTANT : ajoutez un disque persistant monté sur le dossier data/ (sinon vos données
+  sont perdues à chaque déploiement). Pas de disque persistant = ne pas utiliser en production.
+
+AVANT DE PUBLIER
+- Mettez un vrai ADMIN_PASSWORD (long) et le bon SITE_URL.
+- data/store.json contient des demandes de TEST (clients fictifs). Videz "bookings" si vous le souhaitez.
+- Testez : /api/telegram-test (connecté admin), puis une fausse inscription sur /partner-apply.html.
+- Faites des sauvegardes régulières du dossier data/.

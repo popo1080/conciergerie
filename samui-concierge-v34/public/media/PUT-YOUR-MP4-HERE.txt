@@ -1,0 +1,16 @@
+DROP YOUR VIDEO HERE
+
+Filename:
+koh-samui-hero.mp4
+
+Full path:
+public/media/koh-samui-hero.mp4
+
+That's it. Do not change the HTML or JavaScript.
+
+The site will:
+- autoplay it muted
+- loop it
+- show it full-screen on the first page
+- hide the video controls
+- use the built-in Koh Samui photo automatically if the MP4 is missing

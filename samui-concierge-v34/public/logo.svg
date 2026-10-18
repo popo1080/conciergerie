@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="Samui Concierge">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E9D29A"/><stop offset=".5" stop-color="#C9A45C"/><stop offset="1" stop-color="#F2DFAE"/></linearGradient></defs>
+<g fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round">
+ <path stroke-width="11" d="M170 54c-48-20-95 10-87 50 9 43 69 35 100 60 31 25 5 70-45 77-38 5-73-8-91-28"/>
+ <path stroke-width="11" d="M255 64c-51 0-85 44-85 94s34 94 85 94c28 0 52-12 67-34"/>
+ <path stroke-width="9" d="M224 171c21-11 43-21 68-24 20-3 38 0 58 7"/>
+ <path stroke-width="8" d="M296 143c4-33 20-65 45-87 16 21 24 47 22 73"/>
+ <path stroke-width="7" d="M322 99l-24-20m36 38l-28-17m46 29l-28-8m-3-29l20-28"/>
+ <path stroke-width="8" d="M272 213c34 7 69 5 101-6"/>
+ <path stroke-width="6" d="M265 228c30 7 61 7 92 0"/>
+</g>
+<text x="320" y="280" text-anchor="middle" fill="#F7F4ED" font-family="Georgia, 'Times New Roman', serif" font-size="62" letter-spacing="16">SAMUI</text>
+<text x="320" y="298" text-anchor="middle" fill="#C9A45C" font-family="Arial, sans-serif" font-size="15" letter-spacing="9">CONCIERGE</text>
+</svg>
